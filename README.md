@@ -1,4 +1,4 @@
-# The-Fallen-Warrior
+# Confrontation
 A Terminal Based RPG Game Made In Python!
 
 This is an RPG Game completely made in Python, where you can level up, customize your character, defeat enemies, and much more!
