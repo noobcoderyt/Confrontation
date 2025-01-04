@@ -4,12 +4,15 @@ from functions.clear_screen import clear_screen
 from functions.display_text import display_ascii, display_text, GREEN
 from tqdm import tqdm
 
+logo_path = Path("ascii/logo.txt")
+logo = logo_path.read_text().splitlines()
+developers_path = Path("ascii/developers.txt")
+developers = developers_path.read_text().splitlines()
+
 def intro():
 
     """Loads the intro of the game."""
 
-    logo_path = Path("ascii/logo.txt")
-    logo = logo_path.read_text().splitlines()
     display_ascii(logo)
 
     for i in tqdm(range(100), desc="Loading Game"):
@@ -18,8 +21,6 @@ def intro():
     time.sleep(2)
     clear_screen()
     
-    developers_path = Path("ascii/developers.txt")
-    developers = developers_path.read_text().splitlines()
     display_ascii(developers)
 
     time.sleep(4)

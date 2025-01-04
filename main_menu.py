@@ -2,11 +2,12 @@ from colorama import Fore, Back
 from pathlib import Path
 import time
 from functions.clear_screen import clear_screen
+from act1 import act1
 
 user_act_file = Path("user/user_act.txt")
 
 try:
-    user_act = user_act_file.read_text()
+    user_act = int(user_act_file.read_text())
 
 except:
     user_act_file.write_text("")
@@ -30,9 +31,10 @@ def main_menu():
         main_menu()
 
     if user_input == 1:
-            pass
+            act1()
 
     elif user_input == 2:
+
         if user_act:
             pass
         else:
