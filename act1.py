@@ -29,6 +29,3 @@ def act1():
     clear_screen()
 
     dialogue_reader("narrator1.txt", "Narrator", YELLOW)
-
-
-act1()
