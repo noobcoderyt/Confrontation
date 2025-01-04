@@ -25,5 +25,6 @@ def intro():
     time.sleep(4)
     clear_screen()
 
-    display_text("\n\tPlease Play The Game In Fullscreen For The Best Experience.", color=GREEN)
+    display_text("\n\tPlease Play The Game In Fullscreen For The Best Experience.\n", color=GREEN)
     time.sleep(2)
+    clear_screen()

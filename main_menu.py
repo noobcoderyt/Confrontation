@@ -16,15 +16,15 @@ def main_menu():
 
     """Loads the main menu of the game."""
 
-    print(Fore.BLUE + "\n[1] New Game")
-    print(Fore.GREEN + "[2] Load Game")
-    print(Fore.RED + "[3] Exit\n")
+    print(Fore.BLUE + "\n\t[1] New Game")
+    print(Fore.GREEN + "\t[2] Load Game")
+    print(Fore.RED + "\t[3] Exit\n")
 
     try:
-        user_input = int(input(Fore.WHITE + "> "))
+        user_input = int(input(Fore.WHITE + "\t> "))
 
     except:
-        print(Fore.RED + "Please give your input in a number!\n")
+        print(Fore.RED + "\tPlease give your input in a number!\n")
         time.sleep(2)
         clear_screen()
         main_menu()
@@ -36,12 +36,10 @@ def main_menu():
         if user_act:
             pass
         else:
-            print(Fore.RED + "\nYou don't have any saves!\n")
+            print(Fore.RED + "\n\tYou don't have any saves!\n")
             time.sleep(2)
             clear_screen()
             main_menu()
 
     elif user_input == 3:
         quit()
-
-main_menu()
