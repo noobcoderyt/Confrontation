@@ -3,7 +3,7 @@ import os
 
 def clear_screen():
 
-    """Check if the user is on Windows, Linux or Mac."""
+    """Checks if the user is on Windows, Linux or Mac."""
 
     operating_system = platform.system()
 

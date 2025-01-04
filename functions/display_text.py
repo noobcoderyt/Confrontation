@@ -1,18 +1,25 @@
 import time
+from colorama import Fore, Back
 
-def display_text(string, delay=0.1):
+RED = Fore.RED
+GREEN = Fore.GREEN
+BLUE = Fore.BLUE
+WHITE = Fore.WHITE
+BLACK_BG = Back.BLACK
 
-    """Display any string given with a typewriter animation."""
+def display_text(string, color=WHITE, bg=BLACK_BG, delay=0.1):
+
+    """Displays any string given with a typewriter animation."""
 
     for character in string:
-        print(character, end="", flush=True)
+        print(color + character, end="", flush=True)
         time.sleep(delay)
 
 
-def display_ascii(ascii, delay=0.1):
+def display_ascii(ascii, color=WHITE, bg=BLACK_BG, delay=0.1):
     
-    """Display any ASCII art with a transition effect."""
+    """Displays any ASCII art with a transition effect."""
 
     for line in ascii:
-        print(line)
+        print(color + line)
         time.sleep(delay)
