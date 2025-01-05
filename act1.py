@@ -5,6 +5,7 @@ import time
 from colorama import Fore
 from functions.clear_screen import clear_screen
 from dialogue_reader import dialogue_reader, YELLOW
+from functions.display_text import brute_force_effect
 
 user_act_file = Path("user/user_act.txt")
 
@@ -29,3 +30,14 @@ def act1():
     clear_screen()
 
     dialogue_reader("narrator1.txt", "Narrator", YELLOW)
+    time.sleep(4)
+    clear_screen()
+    brute_force_effect("However")
+    time.sleep(2)
+    clear_screen()
+
+    dialogue_2_path = Path("dialogues/narrator2.txt")
+    dialogue_2 = dialogue_2_path.read_text()
+
+    brute_force_effect(dialogue_2)
+    time.sleep(4)

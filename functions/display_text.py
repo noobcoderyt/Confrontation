@@ -1,5 +1,6 @@
 import time
 from colorama import Fore, Back
+import random
 
 RED = Fore.RED
 GREEN = Fore.GREEN
@@ -23,3 +24,17 @@ def display_ascii(ascii, color=WHITE, bg=BLACK_BG, delay=0.1):
     for line in ascii:
         print(color + line)
         time.sleep(delay)
+
+
+def brute_force_effect(string):
+
+    """Displays any given string with brute force animation."""
+
+    characters = ' abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=<>?,./:;"[]}{|`~'
+    for target_char in string:
+        for char in characters:
+            print(char, end='', flush=True)
+            time.sleep(random.uniform(0.01, 0.001))
+            if char == target_char:
+                break
+            print("\b", end='', flush=True)
