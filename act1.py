@@ -6,6 +6,7 @@ from colorama import Fore
 from functions.clear_screen import clear_screen
 from dialogue_reader import dialogue_reader, YELLOW
 from functions.display_text import brute_force_effect
+import random
 
 user_act_file = Path("user/user_act.txt")
 
@@ -21,7 +22,7 @@ def act1():
     print(Fore.CYAN + "\n")
 
     for i in tqdm(range(100), desc="Loading Act 1"):
-        time.sleep(0.05)
+        time.sleep(random.uniform(0.01, 0.1))
 
     time.sleep(0.5)
     clear_screen()
@@ -29,7 +30,7 @@ def act1():
     time.sleep(2)
     clear_screen()
 
-    dialogue_reader("narrator1.txt", "Narrator", YELLOW)
+    dialogue_reader("narrator1.txt", YELLOW)
     time.sleep(4)
     clear_screen()
     brute_force_effect("However")
