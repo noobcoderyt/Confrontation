@@ -1,0 +1,3 @@
+Mission 1: Delete the 'temp' directory from Linus's(your) computer.
+Hint: Use 'rm -r [directory]' to delete a directory.
+
