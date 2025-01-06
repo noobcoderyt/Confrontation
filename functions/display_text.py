@@ -17,15 +17,6 @@ def display_text(string, color=WHITE, bg=BLACK_BG, delay=0.1):
         time.sleep(delay)
 
 
-def display_ascii(ascii, color=WHITE, bg=BLACK_BG, delay=0.1):
-    
-    """Displays any ASCII art with a transition effect."""
-
-    for line in ascii:
-        print(color + line)
-        time.sleep(delay)
-
-
 def brute_force_effect(string, color=WHITE):
 
     """Displays any given string with brute force animation."""
@@ -38,3 +29,12 @@ def brute_force_effect(string, color=WHITE):
             if char == target_char:
                 break
             print("\b", end='', flush=True)
+
+
+def display_ascii(ascii, color=WHITE, bg=BLACK_BG, delay=0.1):
+    
+    """Displays any ASCII art with a transition effect."""
+
+    for line in ascii:
+        print(color + line)
+        time.sleep(delay)

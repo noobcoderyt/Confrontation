@@ -17,6 +17,25 @@ dialogue_2_path = Path("dialogues/narrator2.txt")
 dialogue_2 = dialogue_2_path.read_text()
 
 linus_files = ["OpenAI_Secrets", "Gemini_Jailbreaks", "temp", "devin_key.txt"]
+open_ai_files = ["ChatGPT-4o-Model", "speech.txt", "pass.txt", "tester.c", "competitors.xlsx"]
+system_wipeout_commands = [
+    "sudo rm -rf / --no-preserve-root",
+    "sudo rm -rf /* --no-preserve-root",
+    "sudo rm -rf /",
+    "sudo rm -rf /*",
+    "sudo find / -type f -exec rm -f {} +",
+    "sudo find / -type f -delete",
+    "sudo find / -type f -exec shred -u {} +",
+    "sudo dd if=/dev/zero of=/dev/sda bs=1M",
+    "sudo dd if=/dev/urandom of=/dev/sda bs=1M",
+    "sudo mkfs.ext4 /dev/sda",
+    "sudo mkfs.xfs /dev/sda",
+    "sudo rsync -a --delete /dev/null /",
+    "sudo bash -c 'for i in /*; do rm -rf \"$i\"; done'",
+    "sudo rm -rf /home/*",
+    "sudo rm -rf /var/*"
+]
+password_attempts = 3
 
 def act1():
 
@@ -71,6 +90,53 @@ def act1():
             time.sleep(3)
             mission_completed = True
         elif "rmdir" in user_input:
-            print(Fore.RED + "Error: The directory is not empty. Did you mean 'rm -r temp' ?")
+            print(Fore.RED + "The directory is not empty. Did you mean 'rm -r temp' ?")
         else:
-            print(Fore.RED + "Error: You cannot use that command for this mission.")
+            print(Fore.RED + "You cannot use that command for this mission.")
+        
+    clear_screen()
+
+    dialogue_reader("unknown_person2.txt", BLUE)
+    dialogue_reader("linus2.txt")
+    dialogue_reader("arthur1.txt", BLUE)
+    dialogue_reader("linus3.txt")
+    dialogue_reader("arthur2.txt", BLUE)
+
+    time.sleep(2)
+
+    brute_force_effect("Mission 2: Wipeout: Wipe all files from the PC.")
+
+    time.sleep(2)
+    clear_screen()
+
+    mission_completed = False
+    while mission_completed != True:
+        print(Fore.RED + "openai@debian:", end="")
+        print(Fore.BLUE + "~/Desktop", end="")
+        print(Fore.WHITE + "$ ", end="")
+        user_input = input(Fore.WHITE + "")
+
+        if user_input == "ls":
+            for file in open_ai_files:
+                print(file)
+        elif user_input in system_wipeout_commands:
+            print(Fore.WHITE + "[sudo] password for openai: ", end="")
+            user_input = input(Fore.WHITE + "")
+            if user_input == "openai_server_9124":
+                for i in tqdm(range(100), desc=Fore.RED + "Access granted. Wiping out system..."):
+                    time.sleep(random.uniform(0.1, 0.01))
+                brute_force_effect("Mission Completed!", color=BLUE)
+                time.sleep(3)
+                clear_screen()
+            else:
+                if password_attempts == 0:
+                    print(Fore.RED + "Attempt 3 Failed. System has been locked for 24 hours.")
+                    brute_force_effect("Mission Failed.", color=RED)
+                    act1()
+                else:
+                    print(Fore.RED + "Error: Wrong Password. You have two attempts left.")
+                    password_attempts -= 1
+        elif user_input == "cat pass.txt":
+            print(Fore.WHITE + "openai_server_9124")
+        else:
+            print(Fore.RED + "You cannot use that command on this mission.")
