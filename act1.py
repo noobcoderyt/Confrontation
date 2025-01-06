@@ -13,6 +13,15 @@ user_act_file = Path("user/user_act.txt")
 act1_path = Path("ascii/act1.txt")
 act1_logo = act1_path.read_text().splitlines()
 
+access_granted_path = Path("ascii/access_granted.txt")
+access_granted = access_granted_path.read_text().splitlines()
+
+access_denied_path = Path("ascii/access_denied.txt")
+access_denied = access_denied_path.read_text().splitlines()
+
+linus_ascii_path = Path("ascii/linus.txt")
+linus_ascii = linus_ascii_path.read_text().splitlines()
+
 dialogue_2_path = Path("dialogues/narrator2.txt")
 dialogue_2 = dialogue_2_path.read_text()
 
@@ -77,6 +86,8 @@ def act1():
     time.sleep(4)
     clear_screen()
 
+    display_ascii(linus_ascii)
+
     mission_completed = False
     while mission_completed != True:
         print(Fore.GREEN + "linus@linuxmint:~$ ", end="")
@@ -109,6 +120,8 @@ def act1():
     time.sleep(2)
     clear_screen()
 
+    display_ascii(linus_ascii)
+
     mission_completed = False
     while mission_completed != True:
         print(Fore.RED + "openai@debian:", end="")
@@ -123,6 +136,7 @@ def act1():
             print(Fore.WHITE + "[sudo] password for openai: ", end="")
             user_input = input(Fore.WHITE + "")
             if user_input == "openai_server_9124":
+                display_ascii(access_granted, color=GREEN)
                 for i in tqdm(range(100), desc=Fore.RED + "Access granted. Wiping out system..."):
                     time.sleep(random.uniform(0.1, 0.01))
                 brute_force_effect("Mission Completed!", color=BLUE)
@@ -134,6 +148,7 @@ def act1():
                     brute_force_effect("Mission Failed.", color=RED)
                     act1()
                 else:
+                    display_ascii(access_denied, color=RED)
                     print(Fore.RED + "Error: Wrong Password. You have two attempts left.")
                     password_attempts -= 1
         elif user_input == "cat pass.txt":
